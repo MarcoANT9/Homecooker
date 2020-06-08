@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This class defines a recipe"""
+"""This class defines a recipe."""
 
 import models
 from models.base_model import BaseModel, Base
