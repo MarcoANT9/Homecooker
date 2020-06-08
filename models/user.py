@@ -25,7 +25,6 @@ class User(BaseModel, Base):
     user_type = Column(Boolean, nullable=False)
     image = Column(LargeBinary, nullable=False)
     website = Column(String(256), nullable=True)
-    youtube_channel = Column(String(128), nullable=True)
     nickname = Column(String(128), nullable=True)
 
     """---MySQL-relationships----"""
