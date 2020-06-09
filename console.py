@@ -143,4 +143,4 @@ class HMCRCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
 if __name__ == '__main__':
-    HMCRCommand.cmdloop()
+    HMCRCommand().cmdloop()
