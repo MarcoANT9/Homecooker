@@ -31,7 +31,7 @@ class User(BaseModel, Base):
         reviews = relationship('Review',
                                backref="users",
                                cascade="all, delete, delete-orphan")
-        recipes = relationship('Recipe'
+        recipes = relationship('Recipe',
                                backref="users",
                                cascade="all, delete, delete-orphan")
     else:

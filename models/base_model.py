@@ -11,7 +11,7 @@ import uuid
 if models.stora_type == "db":
     Base = declarative_base()
 else:
-    base = object
+    Base = object
 
 
 class BaseModel():
