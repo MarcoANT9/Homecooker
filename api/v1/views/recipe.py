@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from models.recipe import Recipe
 from models import storage
+from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 
 @app_views.route("/recipes", methods=['GET'], strict_slashes=False)
