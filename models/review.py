@@ -14,14 +14,21 @@ class Review(BaseModel, Base):
     """= INIT & CLASS VARIABLES ============================================"""
     """====================================================================="""
 
-    """---MySQL-definitions----"""
-    __tablename__ = 'Reviews'
-    user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-    recipe_id = Column(String(60), ForeignKey('recipes.id'), nullable=False)
-    text = Column(String(1024), nullable=False)
-    rating = Column(Integer, nullable=False)
+    if models.stora_type == "db":
+        """---MySQL-definitions----"""
+        __tablename__ = 'Reviews'
+        user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+        recipe_id = Column(String(60), ForeignKey('recipes.id'), nullable=False)
+        text = Column(String(1024), nullable=False)
+        rating = Column(Integer, nullable=False)
 
-    """---MySQL-Relationships----"""
+        """---MySQL-Relationships----"""
+    else:
+        user_id = ""
+        recipe_id = ""
+        text = ""
+        rating = 0
+
 
     def __init__(self, *args, **kwargs):
         """Initializes user"""

@@ -30,6 +30,7 @@ class Recipe(BaseModel, Base):
                                cascade="all, delete, delete-orphan")
 
     else:
+        user_id = ""
         name = ""
         text = ""
         review = ""
