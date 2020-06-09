@@ -133,10 +133,10 @@ class JStorage():
         """
         try:
             with open(self.__file_path, 'r') as jfile:
-                json_dict = json.load(jfile)
-            for key in json_dict:
-                self.__objects[key] =
-                classes[json_dict[key]["__class__"]](**json_dict[key])
+                #jd = JSON dictionary
+                jd = json.load(jfile)
+            for key in jd:
+                self.__objects[key] = classes[jd[key]["__class__"]](**jd[key])
         except:
             pass
     # -------------------------------------------------------------------------
