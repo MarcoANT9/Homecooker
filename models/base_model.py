@@ -3,18 +3,23 @@
 
 from datetime import datetime
 import models
+from os import getenv
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 import uuid
 
-Base = declarative_base()
+if models.stora_type == "db":
+    Base = declarative_base()
+else:
+    base = object
 
 
 class BaseModel():
     """ Class that functions as a model for the other classes."""
-    id = Column(String(60), primary_key=True)
-    created_at = Column(Datetime, default=datetime.utcnow)
-    updated_at = Column(Datetime, default=datetime.utcnow)
+    if models.stora_type == "db":
+        id = Column(String(60), primary_key=True)
+        created_at = Column(Datetime, default=datetime.utcnow)
+        updated_at = Column(Datetime, default=datetime.utcnow)
 
     """====================================================================="""
     """= INIT & CLASS VARIABLES ============================================"""
@@ -63,15 +68,16 @@ class BaseModel():
         models.storage.new(self)
         models.storage.save()
 
-    def to_dict(self):
+    def to_dict(self, code=None):
         """Returns a dictionary representation containing all key: values of
         the instance."""
         my_dict = dict(self.__dict__)
         my_dict["__class__"] = str(type(self).__name__)
         my_dict["created_at"] = self.created_at.isoformat()
         my_dict["updated_at"] = self.updated_at.isoformat()
-        if '_sa_instance_state' in my_dict.keys():
-            del my_dict['_sa_instance_state']
+        if code is None:
+            if "password" in my_dict:
+                del new_dict["password"]
         return my_dict
 
     """-----------"""

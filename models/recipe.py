@@ -15,18 +15,25 @@ class Recipe(BaseModel, Base):
     """= INIT & CLASS VARIABLES ============================================"""
     """====================================================================="""
 
-    """---MySQL-definitions----"""
-    __tablename__ = 'Recipes'
-    user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-    name = Column(String(128), nullable=False)
-    text = Column(String(2048), nullable=False)
-    review = Column(Integer, nulable=False)
-    ingredients = Column(String(1048), nullable=False)
+    if models.stora_type == "db":
+        """---MySQL-definitions----"""
+        __tablename__ = 'Recipes'
+        user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+        name = Column(String(128), nullable=False)
+        text = Column(String(2048), nullable=False)
+        review = Column(Integer, nulable=False)
+        ingredients = Column(String(1048), nullable=False)
 
-    """---MySQL-Relationships----"""
-    reviews = relationship('Review',
-                           backref="recipes",
-                           cascade="all, delete, delete-orphan")
+        """---MySQL-Relationships----"""
+        reviews = relationship('Review',
+                               backref="recipes",
+                               cascade="all, delete, delete-orphan")
+
+    else:
+        name = ""
+        text = ""
+        review = ""
+        ingredients = ""
 
     def __init__(self, *args, **kwargs):
         """Initializes user"""
@@ -55,3 +62,14 @@ class Recipe(BaseModel, Base):
     """====================================================================="""
     """== SETTERS & GETTERS ================================================"""
     """====================================================================="""
+    if models.stora_type != "db":
+        @property
+        def reviews(self):
+            """Getter for all reviews linked to this recipe."""
+            from models.review import Review
+            linked_review = []
+            all_review = models.storage.all(Review)
+            for element in all_review.values():
+                if element.recipe_id == self.id:
+                    linked_review.append(element)
+            return linked_review

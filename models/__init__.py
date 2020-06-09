@@ -1,7 +1,15 @@
 """
 Initialices the package
 """
-from models.engine.storage import Storage
+from os import getenv
 
-storage = Storage
+stora_type = getenv("HOME_TYPE_STORAGE")
+
+if stora_type == "db":
+    from models.engine.dbStorage import DbStorage
+    storage = DbStorage()
+else:
+    from models.engine.jStorage import JStorage
+    storage = JStorage()
+
 storage.reload()
