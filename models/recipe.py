@@ -16,7 +16,7 @@ class Recipe(BaseModel, Base):
     """====================================================================="""
 
     """---MySQL-definitions----"""
-    __tablename__ = 'recipes'
+    __tablename__ = 'Recipes'
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     name = Column(String(128), nullable=False)
     text = Column(String(2048), nullable=False)

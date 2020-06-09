@@ -15,7 +15,7 @@ class Review(BaseModel, Base):
     """====================================================================="""
 
     """---MySQL-definitions----"""
-    __tablename__ = 'reviews'
+    __tablename__ = 'Reviews'
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     recipe_id = Column(String(60), ForeignKey('recipes.id'), nullable=False)
     text = Column(String(1024), nullable=False)
