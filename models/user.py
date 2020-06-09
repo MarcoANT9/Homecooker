@@ -15,7 +15,7 @@ class User(BaseModel, Base):
     """= INIT & CLASS VARIABLES ============================================"""
     """====================================================================="""
 
-    if models.stora_type = "db":
+    if models.stora_type == "db":
         """---MySLQ-definitions----"""
         __tablename__ = 'Users'
         first_name = Column(String(128), nullable=True)
