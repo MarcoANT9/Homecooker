@@ -4,7 +4,7 @@ USE HomeCooker_db;
 
 -- Table for Users
 CREATE TABLE IF NOT EXISTS Users (
- user_id varchar(60) NOT NULL,
+ id varchar(60) NOT NULL,
  created_at datetime NOT NULL,
  updated_at datetime NOT NULL,
  first_name varchar(128) NULL,
@@ -12,17 +12,17 @@ CREATE TABLE IF NOT EXISTS Users (
  website varchar(256) NULL,
  email varchar(128) NOT NULL,
  password varchar(128) NOT NULL,
- type tinyint NOT NULL,
+ user_type int NOT NULL,
  profile_image blob NULL,
  nickname varchar(128) NULL,
 
-PRIMARY KEY (user_id)
+PRIMARY KEY (id)
 );
 
 -- Table for Recipes
 
 CREATE TABLE IF NOT EXISTS Recipes (
- recipe_id varchar(60) NOT NULL,
+ id varchar(60) NOT NULL,
  created_at datetime NOT NULL,
  updated_at datetime NOT NULL,
  name varchar(128) NOT NULL,
@@ -31,14 +31,14 @@ CREATE TABLE IF NOT EXISTS Recipes (
  review int NULL,
  ingredients varchar(1024) NOT NULL,
 
-PRIMARY KEY (recipe_id),
-FOREIGN KEY (user_id) REFERENCES Users(user_id)
+PRIMARY KEY (id),
+FOREIGN KEY (user_id) REFERENCES Users(id)
 );
 
 -- Table for Reviews
 
 CREATE TABLE IF NOT EXISTS Reviews (
- review_id varchar(60) NOT NULL,
+ id varchar(60) NOT NULL,
  created_at datetime NOT NULL,
  updated_at datetime NOT NULL,
  text varchar(1024) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS Reviews (
  user_id varchar(60),
  recipe_id varchar(60),
 
-PRIMARY KEY (review_id),
-FOREIGN KEY (user_id) REFERENCES Users(user_id),
-FOREIGN KEY (recipe_id) REFERENCES Recipes(recipe_id)
+PRIMARY KEY (id),
+FOREIGN KEY (user_id) REFERENCES Users(id),
+FOREIGN KEY (recipe_id) REFERENCES Recipes(id)
 );
