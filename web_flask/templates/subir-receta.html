@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeCooker | Explorar</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
+  <!--Google fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Leckerli+One&amp;display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!--Jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!--Bootstrap 4 styles and js-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+  <!--Styles-->
+  <link rel="stylesheet" href="styles/main.css" />
+
+</head>
+<!--body section-->
+
+<body class="bg-light image-bg">
+  <!--Logo section-->
+  <nav class="navbar navbar-expand-lg shadow navbar-light bg-white">
+    <div class="container">
+      <div class="d-flex align-items-center">
+        <a class="logo" href="index.html"><img class="logo-img" src="images/logo.png" alt="logo">HomeCooker</a>
+      </div>
+      <form class="login-form">
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text icon"><i class="fas fa-user icon-color"></i></div>
+              </div>
+              <input type="text" class="login" placeholder="Usuario" required>
+            </div>
+          </div>
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text icon"><i class="fa fa-lock icon-color"></i></div>
+              </div>
+              <input type="password" class="login" placeholder="Contraseña" required>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn-little"><i class="fas fa-sign-in-alt"></i></button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Button trigger modal -->
+      <div class="d-flex align-items-right">
+        <button type="button" class="hc-btn-primary" data-toggle="modal" data-target="#signup">
+          Regístrate
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="hc-text-center">
+                <h4>Registro</h4>
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+
+              <!-- Buttons -->
+              <div id="toolbar">
+                <div class="wrapper text-center">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button class="btn btn-info my-4 active" data-toggle="collapse" href="#general" role="button"
+                      aria-expanded="false" aria-controls="collapseOne">General</button>
+                    <button class="btn btn-info my-4" type="button" data-toggle="collapse" data-target="#chef"
+                      aria-expanded="true" aria-controls="collapseOne">
+                      Chef</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- General form -->
+              <div id="general">
+                <div class="card card-body card-body-color">
+                  <form>
+                    <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio *</small>
+                    <input type="text" id="textInput" class="form-control mb-2" placeholder="Nombre*" required>
+                    <input type="text" id="textInput" class="form-control mb-2" placeholder="Apellido*" required>
+                    <input type="text" id="textInput" class="form-control mb-2" placeholder="Nickname">
+                    <input type="email" id="defaultLoginFormEmail" class="form-control mb-2"
+                      placeholder="Correo electrónico*" required>
+                    <input type="password" id="defaultLoginFormPassword" class="form-control mb-2"
+                      placeholder="Contraseña*" required>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                          <label class="custom-control-label" for="defaultLoginFormRemember">Recordar cuenta</label>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn hc-btn-primary btn-block my-4" type="submit">Registrarse</button>
+                  </form>
+                </div>
+              </div>
+              <!-- Chef form -->
+              <div class="panel-collapse collapse" id="chef">
+                <div class="card card-body card-body-color">
+                  <form>
+                    <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio*</small>
+                    <input type="text" id="textInput" class="form-control mb-2" placeholder="Nombre*" required>
+                    <input type="text" id="textInput" class="form-control mb-2" placeholder="Apellido*" required>
+                    <input type="text" id="textInput" class="form-control mb-2" placeholder="Nickname*" required>
+                    <input type="text" id="textInput" class="form-control mb-2" placeholder="Nacionalidad*" required>
+                    <input type="text" id="textInput" class="form-control mb-2"
+                      placeholder="Sitio web o canal de youtube">
+
+                    <label for="textInput">Imagen de perfil*</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-image"></i></span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput"
+                          required>
+                        <label class="custom-file-label" for="fileInput"></label>
+                      </div>
+                    </div>
+
+                    <input type="email" id="defaultLoginFormEmail" class="form-control mb-2"
+                      placeholder="Correo electrónico*" required>
+                    <input type="password" id="defaultLoginFormPassword" class="form-control mb-2"
+                      placeholder="Contraseña*" required>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                          <label class="custom-control-label" for="defaultLoginFormRemember">Recordar cuenta</label>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn hc-btn-primary btn-block my-4" type="submit">Registrarse</button>
+                  </form>
+                </div>
+              </div>
+              <!-- End chef form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Features -->
+    <div class="row text-center">
+    
+      <form class="border border-light p-5">
+
+        <p class="h4 mb-4 text-center">Save Me</p>
+    
+    
+        <input class="form-control" id="defaultSaveFormLastName" type="text" placeholder="Last name">
+    
+                        <textarea class="form-control rounded-0" id="exampleFormControlTextareaSave" rows="3" placeholder="Message"></textarea>
+    
+        <label for="textarea">Textarea Label</label>
+        <textarea id="textarea" class="form-control mb-4" placeholder="Textarea"></textarea>
+    
+        <label for="textarea">Textarea Label</label>
+        <textarea id="textarea" class="form-control mb-4" placeholder="Textarea"></textarea>
+    
+        <div class="input-group mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Upload</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
+                <label class="custom-file-label" for="fileInput">File Label</label>
+            </div>
+        </div>
+    
+        <label for="textInput">Text input Label</label>
+        <input type="text" id="textInput" class="form-control mb-4" placeholder="Text input">
+    
+        <button class="btn btn-info btn-block" type="submit">Save</button>
+    </form>
+    
+
+
+     
+
+  
+
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="page-footer white pt-4">
+    <div class="container-fluid">
+      <div class="row text-center">
+        <div class="col-12">
+          <p class="text-center text-black">Copyright &copy; HomeCooker 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
