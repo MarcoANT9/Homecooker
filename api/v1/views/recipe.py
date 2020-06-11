@@ -23,7 +23,7 @@ def recipe_by_id(recipe_id):
     abort(404)
 
 
-@app_views.route("/recipes/<recipe_id>", methods=['DELETE'],
+@app_views.route("/del_recipes/<recipe_id>", methods=['DELETE'],
                  strict_slashes=False)
 def del_recipe(recipe_id):
     """ function that deletes a recipe by his id """
@@ -35,7 +35,7 @@ def del_recipe(recipe_id):
     abort(404)
 
 
-@app_views.route("/recipes/", methods=['POST'], strict_slashes=False)
+@app_views.route("/new_recipes/", methods=['POST'], strict_slashes=False)
 def create_recipe():
     """ function that create a new recipe """
     new_recipe = request.get_json()
@@ -51,7 +51,7 @@ def create_recipe():
         return make_response(jsonify(recipe.to_dict()), 201)
 
 
-@app_views.route("/recipes/<recipe_id>", methods=['PUT'], strict_slashes=False)
+@app_views.route("/update_recipes/<recipe_id>", methods=['PUT'], strict_slashes=False)
 def up_recipe(recipe_id):
     """ function that update a recipe by his id """
     recipe_up = request.get_json()

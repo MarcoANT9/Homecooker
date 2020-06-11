@@ -38,7 +38,7 @@ def get_user(user_id=None):
     return jsonify(user.to_dict())
 
 
-@app_views.route('/users/<user_id>', methods=['DELETE'],
+@app_views.route('/del_user/<user_id>', methods=['DELETE'],
                  strict_slashes=False)
 def del_user(user_id=None):
     """
@@ -59,7 +59,7 @@ def del_user(user_id=None):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/users', methods=['POST'],
+@app_views.route('/create_user', methods=['POST'],
                  strict_slashes=False)
 def post_user():
     """
@@ -82,7 +82,7 @@ def post_user():
     return make_response(jsonify(new_user.to_dict()), 201)
 
 
-@app_views.route('/users/<user_id>', methods=['PUT'],
+@app_views.route('/update_user/<user_id>', methods=['PUT'],
                  strict_slashes=False)
 def put_user(user_id=None):
     """

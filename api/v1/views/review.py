@@ -44,7 +44,7 @@ def get_review(review_id=None):
     return jsonify(review.to_dict())
 
 
-@app_views.route('/reviews/<review_id>', methods=['DELETE'],
+@app_views.route('/del_review/<review_id>', methods=['DELETE'],
                  strict_slashes=False)
 def del_review(review_id=None):
     """
@@ -65,7 +65,7 @@ def del_review(review_id=None):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/recipes/<recipe_id>/reviews', methods=['POST'],
+@app_views.route('/recipes/<recipe_id>/new_review', methods=['POST'],
                  strict_slashes=False)
 def post_review(recipe_id=None):
     """
@@ -97,7 +97,7 @@ def post_review(recipe_id=None):
     return make_response(jsonify(new_review.to_dict()), 201)
 
 
-@app_views.route('/reviews/<review_id>', methods=['PUT'],
+@app_views.route('/update_review/<review_id>', methods=['PUT'],
                  strict_slashes=False)
 def put_review(review_id=None):
     """
