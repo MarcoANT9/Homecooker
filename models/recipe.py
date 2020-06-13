@@ -18,7 +18,7 @@ class Recipe(BaseModel, Base):
     if models.stora_type == "db":
         """---MySQL-definitions----"""
         __tablename__ = 'Recipes'
-        user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+        user_id = Column(String(60), ForeignKey('Users.id'), nullable=False)
         name = Column(String(128), nullable=False)
         text = Column(String(2048), nullable=False)
         review = Column(Integer, nullable=False)
