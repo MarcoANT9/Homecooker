@@ -21,6 +21,11 @@ class BaseModel():
         created_at = Column(Datetime, default=datetime.utcnow)
         updated_at = Column(Datetime, default=datetime.utcnow)
 
+    else:
+        id = None
+        created_at = None
+        updated_at = None
+
     """====================================================================="""
     """= INIT & CLASS VARIABLES ============================================"""
     """====================================================================="""
@@ -77,7 +82,7 @@ class BaseModel():
         my_dict["updated_at"] = self.updated_at.isoformat()
         if code is None:
             if "password" in my_dict:
-                del new_dict["password"]
+                del my_dict["password"]
         return my_dict
 
     """-----------"""

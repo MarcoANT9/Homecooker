@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Users (
  first_name varchar(128) NULL,
  last_name varchar(128) NULL,
  website varchar(256) NULL,
- email varchar(128) NOT NULL,
+ email varchar(128) NOT NULL UNIQUE,
  password varchar(128) NOT NULL,
  user_type int NOT NULL,
  profile_image blob NULL,

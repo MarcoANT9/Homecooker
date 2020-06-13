@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This class defines a user"""
 
+from hashlib import md5
 import models
 from models.base_model import BaseModel, Base
 from os import getenv

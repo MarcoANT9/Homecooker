@@ -30,4 +30,4 @@ if __name__ == '__main__':
         app.run(host=getenv('HMCR_API_HOST'),
                 port=getenv('HMCR_API_PORT'), threaded=True)
     else:
-        app.run(host='0.0.0.0', threaded=True)  
+        app.run(host='0.0.0.0', threaded=True)
