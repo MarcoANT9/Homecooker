@@ -21,7 +21,7 @@ class Recipe(BaseModel, Base):
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
         name = Column(String(128), nullable=False)
         text = Column(String(2048), nullable=False)
-        review = Column(Integer, nulable=False)
+        review = Column(Integer, nullable=False)
         ingredients = Column(String(1048), nullable=False)
 
         """---MySQL-Relationships----"""

@@ -3,6 +3,7 @@
 """
 
 import models
+from models.base_model import BaseModel, Base
 from models.user import User
 from models.recipe import Recipe
 from models.review import Review
@@ -27,18 +28,18 @@ class DbStorage():
     def __init__(self):
         """Initializes the class.
         """
-        HC_MYSQL_USER = getenv('HC_MYSQL_USER')
-        HC_MYSQL_PWD = getenv('HC_MYSQL_PWD')
-        HC_MYSQL_HOST = getenv('HC_MYSQL_HOST')
-        HC_MYSQL_DB = getenv('HC_MYSQL_DB')
-        HC_ENV = getenv('HC_ENV')
+        HMCR_MYSQL_USER = getenv('HMCR_MYSQL_USER')
+        HMCR_MYSQL_PWD = getenv('HMCR_MYSQL_PWD')
+        HMCR_MYSQL_HOST = getenv('HMCR_MYSQL_HOST')
+        HMCR_MYSQL_DB = getenv('HMCR_MYSQL_DB')
+        HMCR_ENV = getenv('HMCR_ENV')
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                      format(HC_MYSQL_USER,
-                                             HC_MYSQL_PWD,
-                                             HC_MySQL_HOST,
-                                             HC_MySQL_DB))
-        if HC_ENV == 'test':
+                                      format(HMCR_MYSQL_USER,
+                                             HMCR_MYSQL_PWD,
+                                             HMCR_MYSQL_HOST,
+                                             HMCR_MYSQL_DB))
+        if HMCR_ENV == 'test':
             Base.metadata.drop_all(self.__engine)
 
     """====================================================================="""

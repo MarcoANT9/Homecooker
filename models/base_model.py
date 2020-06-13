@@ -18,8 +18,8 @@ class BaseModel():
     """ Class that functions as a model for the other classes."""
     if models.stora_type == "db":
         id = Column(String(60), primary_key=True)
-        created_at = Column(Datetime, default=datetime.utcnow)
-        updated_at = Column(Datetime, default=datetime.utcnow)
+        created_at = Column(DateTime, default=datetime.utcnow)
+        updated_at = Column(DateTime, default=datetime.utcnow)
 
     else:
         id = None
