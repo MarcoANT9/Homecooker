@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HomeCooker | Explorar</title>
-  
+
   <!-- Favicon logo -->
   <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png">
 
@@ -17,7 +18,7 @@
   <!-- Bootstrap 4 styles -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  
+
   <!--Styles-->
   <link rel="stylesheet" href="../static/styles/main.css" />
 </head>
@@ -28,7 +29,8 @@
   <nav class="navbar navbar-expand-lg shadow navbar-light bg-white">
     <div class="container">
       <div class="d-flex align-items-center">
-        <a class="logo" href="index.html"><img class="logo-img" src="../static/images/logo.png" alt="logo">HomeCooker</a>
+        <a class="logo" href="index.html"><img class="logo-img" src="../static/images/logo.png"
+            alt="logo">HomeCooker</a>
       </div>
       <form class="login-form">
         <div class="form-row align-items-center">
@@ -148,123 +150,112 @@
   <!-- Page Content -->
   <div class="container pt-4">
 
-    <div class="row">
-      <div class="col-xs-6 col-lg-5 bg-white">
-        <div >
-          <h1 class="display-4 font-weight-bold">Nombre de la receta</h1>
-          <p class="lead">Breve descripcion de la receta</p>
-      </div>
-      </div>
-      <div class="col-xs-6 col-lg-5 bg-white">
-        <div >
-          <h1 class="display-4 font-weight-bold">Nombre de la receta</h1>
-          <p class="lead">Breve descripcion de la receta</p>
-      </div>
-      </div>
-    </div>
-
-   
-
-    <!-- Page Features -->
-    <div class="row text-center">
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="https://source.unsplash.com/SxTlB4fde9Q/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">{{ recipe.name }}</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente,
-              tempore debitis beatae culpa natus architecto.</p>
+    <div class="container-fluid bg-light flex-wrap">
+      <div class="row pt-4">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12 multimedia">
+              <img src="https://source.unsplash.com/SxTlB4fde9Q/500x325" class="img-fluid" alt="Responsive image">
+            </div>
           </div>
-          <div class="card-footer">
-            <div class="description rgba-stylish-light text-yellow">
-              <div class="subtitle">
-                <h6>Por Pepito Perez</h6>
-              </div>
-              <div class="more icon-color">
-                <div class="stars text-center mr-2  justify-content-center">
-                  <i class="fas fa-star-half-alt fas-sm ">4.5</i>
-                  <i class="far fa-heart fas-sm red"></i>
-                </div>
+          <div class="row">
+            <div class="col-md-12 pt-4">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg"
+                  allowfullscreen></iframe>
               </div>
             </div>
-            <a href="#" class="hc-btn-primary">Ver receta</a>
+          </div>
+        </div>
+        <div class="col-md-8 pt-4 mb-4">
+          <h2 class="text-center">
+            Nombre de la receta
+          </h2>
+          <p class="lead text-justify">
+            Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+            Curabitur in metus urna.
+          </p>
+          <div class="row">
+            <div class="col-md-4">
+              <h5>
+                Ingredientes
+              </h5>
+              <p>
+                1 Lorem ipsum dolor sit amet,<br>
+                3 Aliquam eget sapien sapien.<br>
+                1/2 Curabitur in metus urna. <br>
+                2 In hac habitasse platea dictumst.<br>
+                5 Phasellus eu sem sapien,<br>
+                1 sed vestibulum velit. <br>
+                1 Nam purus nibh,<br>
+                lacinia non faucibus et,<br>
+                pharetra in dolor.<br>
+                Sed iaculis posuere diam ut cursus.
+              </p>
+            </div>
+            <div class="col-md-8">
+              <h5 class="text-center">
+                Preparación
+              </h5>
+              <p class="text-justify">
+                Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+                Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum
+                velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus.
+                Proin massa magna, vulputate nec bibendum nec,
+                posuere nec lacus.
+                Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+                Curabitur in metus urna.
+                Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+                Curabitur in metus urna.
+                Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+                Curabitur in metus urna.
+              </p>
+
+            </div>
+            <div class="row iconos">
+              <div class="col-md-12">
+                <a type="button" class="btn">
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star-half-alt fas-sm"></i>
+                  <i class="far fa-star fas-sm"></i>
+                </a>
+                <a type="button" class="btn">
+                  <i class="fas fa-lg fa-share" aria-hidden="true"></i>
+                </a>
+                <a type="button" class="btn">
+                  <i class="far fa-heart fa-lg red"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="https://source.unsplash.com/Yr4n8O_3UPc/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">{{ recipe.name }}</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente,
-              tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <div class="description rgba-stylish-light text-yellow">
-              <div class="subtitle">
-                <h6>Por Pepito Perez</h6>
-              </div>
-              <div class="more icon-color">
-                <div class="stars text-center mr-2  justify-content-center">
-                  <i class="fas fa-star-half-alt fas-sm ">4.5</i>
-                  <i class="far fa-heart fas-sm red"></i>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="hc-btn-primary">Ver receta</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="https://source.unsplash.com/_0JpjeqtSyg/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">{{ recipe.name }}</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente,
-              tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <div class="description rgba-stylish-light text-yellow">
-              <div class="subtitle">
-                <h6>Por Pepito Perez</h6>
-              </div>
-              <div class="more icon-color">
-                <div class="stars text-center mr-2  justify-content-center">
-                  <i class="fas fa-star fas-sm">5.0</i>
-                  <i class="fas fa-heart fas-sm red"></i>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="hc-btn-primary">Ver receta</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="https://source.unsplash.com/jivmv9hE6bM/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">{{ recipe.name }}</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente,
-              tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <div class="description rgba-stylish-light text-yellow">
-              <div class="subtitle">
-                <h6>Por Pepito Perez</h6>
-              </div>
-              <div class="more icon-color">
-                <div class="stars text-center mr-2  justify-content-center">
-                  <i class="far fa-star fas-sm">0.0</i>
-                  <i class="far fa-heart fas-sm red"></i>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="hc-btn-primary">Ver receta</a>
-          </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h5 class="text-center">
+            Comentarios
+          </h5>
+          <section>
+            <p class="text-justify">
+              Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. Lorem ipsum dolor sit
+              amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus.
+              Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus.
+            </p>
+          </section>
         </div>
       </div>
 
@@ -274,7 +265,7 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="page-footer white pt-4">
+  <footer class="page-footer white">
     <div class="container-fluid">
       <div class="row text-center">
         <div class="col-12">
@@ -290,9 +281,9 @@
 
 <!-- Booststrap js scripts -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"></script>
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <!-- Javasript scripts -->
 <script src="../static/js/main.js"></script>
+
 </html>
