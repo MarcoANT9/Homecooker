@@ -29,11 +29,11 @@ class User(BaseModel, Base):
         nickname = Column(String(128), nullable=True)
 
         """---MySQL-relationships----"""
-        reviews = relationship('Review',
-                               backref="users",
+        reviews = relationship("Review",
+                               backref="user",
                                cascade="all, delete, delete-orphan")
-        recipes = relationship('Recipe',
-                               backref="users",
+        recipes = relationship("Recipe",
+                               backref="user",
                                cascade="all, delete, delete-orphan")
     else:
         first_name = ""

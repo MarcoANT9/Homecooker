@@ -25,8 +25,8 @@ class Recipe(BaseModel, Base):
         ingredients = Column(String(1048), nullable=False)
 
         """---MySQL-Relationships----"""
-        reviews = relationship('Review',
-                               backref="recipes",
+        reviews = relationship("Review",
+                               backref="recipe",
                                cascade="all, delete, delete-orphan")
 
     else:

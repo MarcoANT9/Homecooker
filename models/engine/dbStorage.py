@@ -38,7 +38,8 @@ class DbStorage():
                                       format(HMCR_MYSQL_USER,
                                              HMCR_MYSQL_PWD,
                                              HMCR_MYSQL_HOST,
-                                             HMCR_MYSQL_DB))
+                                             HMCR_MYSQL_DB),
+                                      echo_pool=True)
         if HMCR_ENV == 'test':
             Base.metadata.drop_all(self.__engine)
 

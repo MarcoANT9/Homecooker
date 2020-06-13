@@ -4,7 +4,7 @@ USE HomeCooker_db;
 
 -- Table for Users
 CREATE TABLE IF NOT EXISTS Users (
- id varchar(60) NOT NULL,
+ id varchar(60) NOT NULL UNIQUE,
  created_at datetime NOT NULL,
  updated_at datetime NOT NULL,
  first_name varchar(128) NULL,
@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS Reviews (
  updated_at datetime NOT NULL,
  text varchar(1024) NOT NULL,
  rating int NOT NULL,
- user_id varchar(60),
- recipe_id varchar(60),
+ user_id varchar(60) NOT NULL UNIQUE,
+ recipe_id varchar(60) NOT NULL UNIQUE,
 
 PRIMARY KEY (id),
 FOREIGN KEY (user_id) REFERENCES Users(id),
