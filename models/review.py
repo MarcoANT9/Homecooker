@@ -18,7 +18,8 @@ class Review(BaseModel, Base):
         """---MySQL-definitions----"""
         __tablename__ = 'Reviews'
         user_id = Column(String(60), ForeignKey('Users.id'), nullable=False)
-        recipe_id = Column(String(60), ForeignKey('Recipes.id'), nullable=False)
+        recipe_id = Column(String(60), ForeignKey('Recipes.id'),
+                           nullable=False)
         text = Column(String(1024), nullable=False)
         rating = Column(Integer, nullable=False)
 
@@ -28,7 +29,6 @@ class Review(BaseModel, Base):
         recipe_id = ""
         text = ""
         rating = 0
-
 
     def __init__(self, *args, **kwargs):
         """Initializes user"""

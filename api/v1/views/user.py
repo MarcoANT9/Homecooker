@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+from api.v1.views import app_views
 from models.user import User
 from models import storage
-from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
+
 
 @app_views.route('/users', strict_slashes=False)
 def get_users():
@@ -111,4 +112,4 @@ def put_user(user_id=None):
         if key not in keys_ignore:
             setattr(user, key, data[key])
     user.save()
-    return make_response(jsonify(user.to_dict()), 200)  
+    return make_response(jsonify(user.to_dict()), 200)

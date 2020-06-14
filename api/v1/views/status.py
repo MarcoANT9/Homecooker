@@ -16,5 +16,5 @@ def stats():
                 'reviews': storage.count('Review'),
                 'recipes': storage.count('Recipe'),
                 'users': storage.count('User')
-                }
+    }
     return jsonify(all_objs)

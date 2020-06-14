@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+from api.v1.views import app_views
 from models.review import Review
 from models import storage
-from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
+
 
 @app_views.route('/recipes/<recipe_id>/reviews', strict_slashes=False)
 def get_reviews(recipe_id=None):

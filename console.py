@@ -8,9 +8,12 @@ from models.base_model import BaseModel
 from models.recipe import Recipe
 from models.review import Review
 from models.user import User
-import shlex # for splitting the line along spaces except in double quotes
+import shlex  # For splitting the line along spaces except in double quotes
 
-classes = {"BaseModel": BaseModel, "Recipe": Recipe, "Review": Review, "User": User}
+
+classes = {"BaseModel": BaseModel, "Recipe": Recipe, "Review": Review,
+           "User": User}
+
 
 class HMCRCommand(cmd.Cmd):
     """ HMCR console """

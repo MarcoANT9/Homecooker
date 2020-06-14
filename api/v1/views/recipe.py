@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+from api.v1.views import app_views
 from models.recipe import Recipe
 from models import storage
-from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
+
 
 @app_views.route("/recipes", methods=['GET'], strict_slashes=False)
 def get_recipes():
@@ -51,7 +52,8 @@ def create_recipe():
         return make_response(jsonify(recipe.to_dict()), 201)
 
 
-@app_views.route("/update_recipes/<recipe_id>", methods=['PUT'], strict_slashes=False)
+@app_views.route("/update_recipes/<recipe_id>", methods=['PUT'],
+                 strict_slashes=False)
 def up_recipe(recipe_id):
     """ function that update a recipe by his id """
     recipe_up = request.get_json()

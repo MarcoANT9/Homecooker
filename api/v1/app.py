@@ -54,7 +54,7 @@ def login():
 
         if len(user) > 0:
             if md5(password.encode()).hexdigest() == user["password"]:
-                if user['first_name'] == None:
+                if user['first_name'] is None:
                     session['name'] = user['nickname']
                 else:
                     session['name'] = user['first_name']
@@ -66,7 +66,8 @@ def login():
         else:
             return "Error: User not found"
     else:
-        return render_template("login.html") # <- Posible cambio aqui
+        return render_template("login.html")  # <- Posible cambio aqui
+
 
 @app.route('logout', strict_slashes=False)
 def logout():
