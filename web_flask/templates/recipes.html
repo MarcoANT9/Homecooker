@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeCooker | Explorar</title>
+
+  <!-- Favicon logo -->
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Leckerli+One&amp;display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!-- Bootstrap 4 styles -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!--Styles-->
+  <link rel="stylesheet" href="../static/styles/main.css" />
+</head>
+<!--body section-->
+
+
+<body class="bg-light image-bg">
+  <!--Logo section-->
+  <nav class="navbar navbar-expand-lg shadow navbar-light bg-white">
+    <div class="container">
+      <div class="d-flex align-items-center">
+        <a class="logo" href="index"><img class="logo-img" src="../static/images/logo.png" alt="logo">HomeCooker</a>
+      </div>
+      <!--acomodar condicional para mostrar navbar segun loguin o no-->
+      {% if user == "" %}
+      <form class="login-form" method="POST" action="variable">
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text icon"><i class="fas fa-user icon-color"></i></div>
+              </div>
+              <input type="text" class="login" placeholder="Usuario" required>
+            </div>
+          </div>
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text icon"><i class="fa fa-lock icon-color"></i></div>
+              </div>
+              <input type="password" class="login" placeholder="Contraseña" required>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn-little"><i class="fas fa-sign-in-alt"></i></button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Button trigger modal -->
+      <div class="d-flex align-items-right">
+        <button type="button" class="hc-btn-primary" data-toggle="modal" data-target="#signup">
+          Regístrate
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="form">
+                <!-- Chef form -->
+                <form class="register-form-chef" method="POST" action="variable">
+                  <div class="hc-text-center">
+                    <h4>Registro usuario chef</h4>
+                  </div>
+                  <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio*</small>
+                  <input type="text"  class="form-control mb-2" placeholder="Nombre*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Apellido*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Nickname*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Nacionalidad*" required>
+                  <input type="text" id="textInput" class="form-control mb-2"
+                    placeholder="Sitio web o canal de youtube">
+                  <!-- Upload image -->
+                  <label for="textInput">Imagen de perfil*</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-image"></i></span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" required>
+                      <label class="custom-file-label" for="fileInput"></label>
+                    </div>
+                  </div><!-- End upload image -->
+                  <input type="email" id="defaultLoginFormEmail" class="form-control mb-2"
+                    placeholder="Correo electrónico*" required>
+                  <input type="password" id="defaultLoginFormPassword" class="form-control mb-2"
+                    placeholder="Contraseña*" required>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember1">
+                        <label class="custom-control-label" for="defaultLoginFormRemember1">Recordar cuenta</label>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="hc-btn-primary btn-block my-4" type="submit">Registrarse</button>
+                  <p class="message">¿No eres chef? <a href="#">Crear cuenta general</a></p>
+                </form><!-- End chef form -->
+
+                <!-- General user form -->
+                <form class="register-form-user" method="POST" action="variable">
+                  <div class="hc-text-center">
+                    <h4>Registro de usuario común</h4>
+                  </div>
+                  <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio *</small>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Nombre*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Apellido*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Nickname">
+                  <input type="email" id="defaultLoginFormEmail" class="form-control mb-2"
+                    placeholder="Correo electrónico*" required>
+                  <input type="password" id="defaultLoginFormPassword" class="form-control mb-2"
+                    placeholder="Contraseña*" required>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                        <label class="custom-control-label" for="defaultLoginFormRemember">Recordar cuenta</label>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn hc-btn-primary btn-block my-4" type="submit">Registrarse</button>
+                  <p class="message">¿Registro como chef? <a href="#">Crear cuenta de chef</a></p>
+                </form><!-- End general user form -->
+              </div>
+              <!-- End general form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  {%else%}
+      <!-- form section -->
+            <!-- Button trigger modal -->
+            <div class="d-flex justify-content-end">
+            <div class="d-flex align-items-right">
+              <button type="button" class="hc-btn-primary" data-toggle="modal" data-target="#subir_receta">
+                Subir receta
+              </button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="subir_receta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <!-- Recipe form -->
+                      <div class="card card-body card-body-color">
+                        <form method="POST" action="variable">
+                          <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio*</small>
+                          <input type="text" id="textInput" class="form-control mb-2" placeholder="Nombre de receta*" required>
+                          <textarea id="textarea" class="form-control mb-2" placeholder="Descripción*" required></textarea>
+                          <textarea id="textarea" class="form-control mb-2" placeholder="Ingredientes* separados por coma(ejm: Azucar, flores, muchos colores)" required></textarea>
+                          <textarea id="textarea" class="form-control mb-2" placeholder="Preparación*" required></textarea>
+                          <input type="text" id="textInput" class="form-control mb-2" placeholder="Url video en youtube">
+                          <label for="textInput">Foto de la receta*</label>
+                          <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-image"></i></span>
+                            </div>
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput"
+                                required>
+                              <label class="custom-file-label" for="fileInput"></label>
+                            </div>
+                          </div>
+                          <button class="btn hc-btn-primary btn-block my-4" type="submit">Guardar</button>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- /recipe form -->
+                  </div>
+                </div>
+              </div>
+      <!-- /form section -->
+
+      <!-- user avatar -->
+            <div class="col">
+              <img class="photo-profile" src="../static/images/logo.png" width="40" height="40" alt="{{user}}">
+            </div>
+          </div>
+        </div>
+      </nav>
+  {%endif%}
+  <!-- Page Content -->
+  <div class="container pt-4">
+
+    <div class="container-fluid bg-light flex-wrap">
+      <div class="row pt-4">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12 multimedia">
+              <img src="https://source.unsplash.com/SxTlB4fde9Q/500x325" class="img-fluid" alt="Responsive image">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 pt-4">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 pt-4 mb-4">
+          <h2 class="text-center">{{ recipes }}</h2>
+          <p class="lead text-justify">{{ description }}</p>
+          <div class="row">
+            <div class="col-md-4">
+              <h5>
+                Ingredientes
+              </h5>
+              <p>{{ ingredients }}</p>
+            </div>
+            <div class="col-md-8">
+              <h5 class="text-center">
+                Preparación
+              </h5>
+              <p class="text-justify">{{ preparation }}</p>
+              {% for dict in params%}
+              <code>{{dict.preparation}}</code>
+              {%endfor%}
+
+            </div>
+            <div class="row iconos">
+              <div class="col-md-12">
+                <a type="button" class="btn">
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star-half-alt fas-sm"></i>
+                  <i class="far fa-star fas-sm"></i>
+                </a>
+                <a type="button" class="btn">
+                  <i class="fas fa-lg fa-share" aria-hidden="true"></i>
+                </a>
+                <a type="button" class="btn">
+                  <i class="far fa-heart fa-lg red"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h5 class="text-center">
+            Comentarios
+          </h5>
+          <section>
+            <p class="text-justify">
+              Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. Lorem ipsum dolor sit
+              amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus.
+              Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus.
+            </p>
+          </section>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="page-footer white">
+    <div class="container-fluid">
+      <div class="row text-center">
+        <div class="col-12">
+          <p class="text-center text-black">Copyright &copy; HomeCooker 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+<!-- Jquery scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Booststrap js scripts -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<!-- Javasript scripts -->
+<script src="../static/js/main.js"></script>
+
+</html>
