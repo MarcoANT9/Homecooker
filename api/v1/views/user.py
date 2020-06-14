@@ -78,7 +78,11 @@ def post_user():
         abort(400, 'Missing password')
     new_user = User(**data)
     storage.new(new_user)
-    storage.save()
+    try:
+        storage.save()
+    except:
+        abort(400, 'Email alredy in use')
+
     return make_response(jsonify(new_user.to_dict()), 201)
 
 
