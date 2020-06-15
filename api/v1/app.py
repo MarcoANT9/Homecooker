@@ -79,6 +79,6 @@ def logout():
 if __name__ == '__main__':
     if getenv('HMCR_API_HOST'):
         app.run(host=getenv('HMCR_API_HOST'),
-                port=getenv('HMCR_API_PORT'), threaded=True)
+                port=getenv('HMCR_API_PORT'), threaded=True, debug=True)
     else:
-        app.run(host='0.0.0.0', threaded=True)
+        app.run(host='0.0.0.0', threaded=True, debug=True)
