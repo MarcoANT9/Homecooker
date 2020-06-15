@@ -61,7 +61,7 @@ class DbStorage():
         for element in classes:
 
             if cls is None or cls is classes[element] or cls is element:
-                objects = self.session.query(classes[element]).all()
+                objects = self.__session.query(classes[element]).all()
 
                 for obj in objects:
                     key = obj.__class__.__name__ + '.' + obj.id

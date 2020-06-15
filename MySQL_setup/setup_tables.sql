@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS Reviews (
  updated_at datetime NOT NULL,
  text varchar(1024) NOT NULL,
  rating int NOT NULL,
- user_id varchar(60) NOT NULL UNIQUE,
- recipe_id varchar(60) NOT NULL UNIQUE,
+ user_id varchar(60),
+ recipe_id varchar(60),
 
 PRIMARY KEY (id),
 FOREIGN KEY (user_id) REFERENCES Users(id),
