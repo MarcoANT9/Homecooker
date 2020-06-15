@@ -275,3 +275,33 @@ footer {
     font-weight: 500;
   }
   
+/* User section
+ ========================================================================== */  
+ .user-img {
+    width: 50px;
+}
+
+.btn-user {
+    padding: 0px 25px;
+    margin: -10px;
+}
+
+.dropdown-menu.show {
+    min-width: 0rem;
+    display: block;
+    left: 10px;
+}
+.btn.focus, .btn:focus, .btn:active  {
+    outline: none;
+    box-shadow: -1px 4px 6px -3px #5B5959;
+}
+
+.user-mn {
+    border: none;
+    box-shadow: -1px 4px 6px -3px #5B5959;
+}
+
+.user-name {
+    cursor: none;
+    font-weight: 600;
+}
