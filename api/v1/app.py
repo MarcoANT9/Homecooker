@@ -69,7 +69,7 @@ def login():
         return render_template("login.html")  # <- Posible cambio aqui
 
 
-@app.route('logout', strict_slashes=False)
+@app.route('/logout', strict_slashes=False)
 def logout():
     """Defines the logout procedure"""
     session.clear()
