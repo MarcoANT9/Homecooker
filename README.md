@@ -13,7 +13,9 @@
 ---
 
 ### Description
-Home Cooker is a web site that aims to provide its customers with the experience of cooking from home, with a selection of delicious recipes made by chefs or experts in the kitchen, allowing users the possibility to interact. Using the methodology the Restful API, flask, Python, MysqlAlchemy and Mysql.
+#### Home Cooker is a web site that aims to provide its customers with the experience of cooking from home, with a selection of delicious recipes made by chefs or experts in the kitchen, allowing users the possibility to interact. Using the methodology the Restful API, flask, Python, MysqlAlchemy and Mysql.
+
+
 ---
 ### Repository contents
 HomeCooker - Final project files:
@@ -65,7 +67,7 @@ EOF  all  create  destroy  help  quit  show  update
 ```
 echo 'create User email="<user_email>" last_name="<user_last_name>" first_name="<user_first_name>" website="<user_website>" nickname="<user_nickname>" user_type=<user_type> password="<user_password>"' | HMCR_MYSQL_USER=[MySQL_USER] HMCR_MYSQL_PWD=[MySQL_USER_PASSWORD] HMCR_MYSQL_HOST=[MySQL_USER_HOST] HMCR_MYSQL_DB=[MySQL_DATABASE] HMCR_TYPE_STORAGE=[STORAGE_TYPE] ./console.py
 ```
----
+
 |   **Varible**   |   **Description**   |
 | -------------- | --------------------- |
 |email | This is the user email; mandatory. |
@@ -80,7 +82,6 @@ echo 'create User email="<user_email>" last_name="<user_last_name>" first_name="
 ```
 echo 'create Recipe user_id="<chef_id>" name="<recipe_name>" text="<recipe_procedure>" review=<recipe_review> ingredients="<recipe_ingredients>"' | HMCR_MYSQL_USER=[MySQL_USER] HMCR_MYSQL_PWD=[MySQL_USER_PASSWORD] HMCR_MYSQL_HOST=[MySQL_USER_HOST] HMCR_MYSQL_DB=[MySQL_DATABASE] HMCR_TYPE_STORAGE=[STORAGE_TYPE] ./console.py
 ```
----
 |   **Varible**   |   **Description**   |
 | -------------- | --------------------- |
 |user_id | User id from the database. |
@@ -95,7 +96,6 @@ echo 'create Recipe user_id="<chef_id>" name="<recipe_name>" text="<recipe_proce
 
 echo 'create Review user_id="<user_id>" recipe_id="<recipe_id>" text="<review_text>" rating=<recipe_rating>' | HMCR_MYSQL_USER=[MySQL_USER] HMCR_MYSQL_PWD=[MySQL_USER_PASSWORD] HMCR_MYSQL_HOST=[MySQL_USER_HOST] HMCR_MYSQL_DB=[MySQL_DATABASE] HMCR_TYPE_STORAGE=[STORAGE_TYPE] ./console.py
 ```
----
 
 |   **Varible**   |   **Description**   |
 | -------------- | --------------------- |
