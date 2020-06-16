@@ -60,7 +60,7 @@ def del_user(user_id=None):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/create_user', methods=['POST'],
+@app_views.route('/new_user', methods=['POST'],
                  strict_slashes=False)
 def post_user():
     """
@@ -77,11 +77,16 @@ def post_user():
         abort(400, 'Missing email')
     if 'password' not in data.keys():
         abort(400, 'Missing password')
+    print(response.code)
     new_user = User(**data)
+    print(new_user)
     storage.new(new_user)
+    print("user created")
     try:
         storage.save()
+        print("user saved")
     except:
+        print("valio monda")
         abort(400, 'Email alredy in use')
 
     return make_response(jsonify(new_user.to_dict()), 201)

@@ -46,7 +46,7 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password'].encode('utf-8')
-
+        print("{}-{}".format(email, password))
         curl = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         curl.execute("SELECT * FROM Users WHERE email={%s}".format(email))
         user = curl.fetchone()
@@ -66,7 +66,7 @@ def login():
         else:
             return "Error: User not found"
     else:
-        return render_template("login.html")  # <- Posible cambio aqui
+        return render_template("index.html")  # <- Posible cambio aqui
 
 
 @app.route('/logout', strict_slashes=False)
