@@ -26,10 +26,10 @@ HomeCooker - Final project files:
 |console.py | Command line interpreter. |
 |logo.png | Logo image. |
 |api/ | Contains all configuration of the RestFul API. |
+|landing-page/ | Contains files for the landind page. |
 |models/ | Contains the definition of all the models use in the project. |
 |MySQL_setup/ | Contains configuration files the database and the developer user. |
-|web_flask | Contains files and configuration for the web site. |
-|landing-page | Contains files for the landind page. |
+|web_flask /| Contains files and configuration for the web site. |
 |tests/ | Contains unittests for the project. |
 |README.md | Readme file. |
 |AUTHORS | Autors file. |
