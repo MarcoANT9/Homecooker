@@ -64,7 +64,8 @@ EOF  all  create  destroy  help  quit  show  update
 #### Non-interactive Mode to create user:
 ```
 echo 'create User email="<user_email>" last_name="<user_last_name>" first_name="<user_first_name>" website="<user_website>" nickname="<user_nickname>" user_type=<user_type> password="<user_password>"' | HMCR_MYSQL_USER=[MySQL_USER] HMCR_MYSQL_PWD=[MySQL_USER_PASSWORD] HMCR_MYSQL_HOST=[MySQL_USER_HOST] HMCR_MYSQL_DB=[MySQL_DATABASE] HMCR_TYPE_STORAGE=[STORAGE_TYPE] ./console.py
-
+```
+---
 |   **Varible**   |   **Description**   |
 | -------------- | --------------------- |
 |email | This is the user email; mandatory. |
@@ -73,12 +74,13 @@ echo 'create User email="<user_email>" last_name="<user_last_name>" first_name="
 |website | User website or YouTube channel. |
 |user_type | User type number, chef or general user; mandatory (1 = chef | 0 = common user) |
 |password | User password; mandatory |
-```
+---
 
 #### Non-interactive Mode to create recipe:
 ```
 echo 'create Recipe user_id="<chef_id>" name="<recipe_name>" text="<recipe_procedure>" review=<recipe_review> ingredients="<recipe_ingredients>"' | HMCR_MYSQL_USER=[MySQL_USER] HMCR_MYSQL_PWD=[MySQL_USER_PASSWORD] HMCR_MYSQL_HOST=[MySQL_USER_HOST] HMCR_MYSQL_DB=[MySQL_DATABASE] HMCR_TYPE_STORAGE=[STORAGE_TYPE] ./console.py
-
+```
+---
 |   **Varible**   |   **Description**   |
 | -------------- | --------------------- |
 |user_id | User id from the database. |
@@ -86,12 +88,14 @@ echo 'create Recipe user_id="<chef_id>" name="<recipe_name>" text="<recipe_proce
 |text | Recipe procedure; mandatory. |
 |review | This is a number (1-5). |
 |ingredients | Recipe ingredients; mandatory. |
-```
+---
 
 #### Non-interactive Mode to create review:
 ```
 
 echo 'create Review user_id="<user_id>" recipe_id="<recipe_id>" text="<review_text>" rating=<recipe_rating>' | HMCR_MYSQL_USER=[MySQL_USER] HMCR_MYSQL_PWD=[MySQL_USER_PASSWORD] HMCR_MYSQL_HOST=[MySQL_USER_HOST] HMCR_MYSQL_DB=[MySQL_DATABASE] HMCR_TYPE_STORAGE=[STORAGE_TYPE] ./console.py
+```
+---
 
 |   **Varible**   |   **Description**   |
 | -------------- | --------------------- |
@@ -99,7 +103,6 @@ echo 'create Review user_id="<user_id>" recipe_id="<recipe_id>" text="<review_te
 |recipe_id | Recipe id from the database. |
 |text | Recipe comments; mandatory. |
 |rating | Recipe rating - number (1-5); mandatory. |
-```
 
 ---
 ### Authors
