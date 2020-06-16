@@ -5,10 +5,8 @@
 
 * [Description](https://github.com/MarcoANT9/Homecooker#description)
 * [Files](https://github.com/MarcoANT9/Homecooker#repository-contents)
-* [Usage](https://github.com/MarcoANT9/Homecooker#usage)
 * [How to Install](https://github.com/MarcoANT9/Homecooker#how-to-install)
 * [Example Usage](https://github.com/MarcoANT9/Homecooker#example-usage)
-* [Testing](https://github.com/MarcoANT9/Homecooker#Testing)
 * [Authors](https://github.com/MarcoANT9/Homecooker#authors)
 ---
 
@@ -25,17 +23,19 @@ HomeCooker - Final project files:
 
 |   **File**   |   **Description**   |
 | -------------- | --------------------- |
-|console.py | Command interpreter. |
-|tests\ | Contains unittests for the project. |
+|console.py | Command line interpreter. |
+|logo.png | Logo image. |
+|api/ | Contains all configuration of the RestFul API. |
+|models/ | Contains the definition of all the models use in the project. |
+|MySQL_setup/ | Contains configuration files the database and the developer user. |
+|web_flask | Contains files and configuration for the web site. |
+|landing-page | Contains files for the landind page. |
+|tests/ | Contains unittests for the project. |
 |README.md | Readme file. |
 |AUTHORS | Autors file. |
 
 ---
-### Usage
 
-
-
----
 ### How to Install
 Clone the repositoy below:
 ```bash
