@@ -13,7 +13,10 @@
 ---
 
 ### Description
-#### Home Cooker is a web site that aims to provide its customers with the experience of cooking from home, with a selection of delicious recipes made by chefs or experts in the kitchen, allowing users the possibility to interact. Using the methodology the Restful API, flask, Python, MysqlAlchemy and Mysql.
+Home Cooker is a web site that aims to provide its customers with the experience of cooking from home,
+with a selection of delicious recipes made by chefs or experts in the kitchen,
+allowing users the possibility to interact.
+Using the methodology the Restful API, flask, Python, MysqlAlchemy and Mysql.
 
 
 ---
@@ -50,7 +53,7 @@ Documented commands (type help <topic>):
 ========================================
 EOF  all  create  destroy  help  quit  show  update
 ```
----
+
 | **Function** | **Funcionality** | **Format** | **Example** |
 | -------------- | ----------------- | ----------------- | ----------------- |
 |EOF | Exit the program. | EOF | EOF 
