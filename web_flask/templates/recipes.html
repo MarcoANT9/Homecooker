@@ -210,7 +210,6 @@
   {%endif%}
   <!-- Page Content -->
   <div class="container pt-4">
-
     <div class="container-fluid bg-light flex-wrap">
       <div class="row pt-4">
         <div class="col-md-4">
@@ -229,24 +228,20 @@
           </div>
         </div>
         <div class="col-md-8 pt-4 mb-4">
-          <h2 class="text-center">{{ recipes }}</h2>
+          <h2 class="text-center">{{ recipes.name }}</h2>
           <p class="lead text-justify">{{ description }}</p>
           <div class="row">
             <div class="col-md-4">
               <h5>
                 Ingredientes
               </h5>
-              <p>{{ ingredients }}</p>
+              <p>{{ recipes.ingredients }}</p>
             </div>
             <div class="col-md-8">
               <h5 class="text-center">
                 Preparación
               </h5>
-              <p class="text-justify">{{ preparation }}</p>
-              {% for dict in params%}
-              <code>{{dict.preparation}}</code>
-              {%endfor%}
-
+              <p class="text-justify">{{ recipes.text }}</p>
             </div>
             <div class="row iconos">
               <div class="col-md-12">

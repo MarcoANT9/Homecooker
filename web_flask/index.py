@@ -21,24 +21,31 @@ def home():
     all_ = storage.all(Recipe).values()
     for value in all_:
         recipes.append(value.to_dict())
-    recipe = jsonify(recipes)
 
     users = storage.all('User')
     users_list = []
     for user in users.values():
         users_list.append(user.to_dict())
-    user = jsonify(users_list)
-
-    recipess = "recetica"
-    description = "descripcioncita"
-    return render_template("index.html", recipes=recipess,
-                            description=description,
-                            user="")
+    return render_template("index.html", recipes=recipes,
+                            user=user)
 
 @app.route('/recipe')
 def recipe():
+    response = requests.get(url="http://127.0.0.1:5001/api/v1/recipes")
+    recipes = response.json()
+    for recipe in recipes:
+        recipe_dict = dict(recipe)
+    print(recipe_dict)
+    return render_template("recipes.html", recipes=recipe_dict)
 
-    return render_template("recipes.html", user="")
+@app.route('/recipe/<id>')
+def recipe_id(id):
+    all_ = storage.all(Recipe).values()
+    for value in all_:
+        if value.id == id:
+            recipes = value.to_dict()
+    print(recipes)
+    return render_template("recipes.html", recipes=recipes)
 
 if __name__ == '__main__':
     if getenv('HMCR_API_HOST'):

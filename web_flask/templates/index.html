@@ -242,13 +242,13 @@
     <!-- Page Features -->
     <div class="row text-center">
       <!-- recipes preview block -->
-      {% for i in range(0,4) %}
+      {% for recipe in recipes[0:4] %}
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
           <img class="card-img-top" src="https://source.unsplash.com/SxTlB4fde9Q/500x325" alt="">
           <div class="card-body">
-            <h4 class="card-title">{{ recipes }}</h4>
-            <p class="card-text">{{ description }}</p>
+            <h4 class="card-title">{{ recipe.name }}</h4>
+            <p class="card-text">{{ recipe.ingredients }}</p>
           </div>
           <div class="card-footer">
             <div class="description rgba-stylish-light text-yellow">
@@ -262,7 +262,7 @@
                 </div>
               </div>
             </div>
-            <a href="recipe" class="hc-btn-primary">Ver receta</a>
+            <a href="recipe/{{recipe.id}}" id="{{recipe.id}}" class="hc-btn-primary">Ver receta</a>
           </div>
         </div>
       </div>
