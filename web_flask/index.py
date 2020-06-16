@@ -3,33 +3,42 @@ from models.user import User
 from models.recipe import Recipe
 from models.review import Review
 from os import environ, getenv
-from flask import Flask, request, render_template, redirect, url_for, session
+from flask import Flask, request, render_template, redirect, url_for, session, jsonify
 from flask_mysqldb import MySQL
 import requests
 
 app = Flask(__name__)
 
 
+@app.teardown_appcontext
+def close_db(error):
+    """ Remove the current SQLAlchemy Session """
+    storage.close()
+
 @app.route('/')
 def home():
-    return render_template("index.html")
+    recipes = []
+    all_ = storage.all(Recipe).values()
+    for value in all_:
+        recipes.append(value.to_dict())
+    recipe = jsonify(recipes)
 
-@app.route('/index')
-def index():
-    recipes_list = []
-    recipes = "nombre receta"
-    description = "Breve descripcion de la receta"
-    user = ["Fulanito", "Mario", "Joaquin", "Luz"]
-    return render_template('index.html', recipes=recipes,
+    users = storage.all('User')
+    users_list = []
+    for user in users.values():
+        users_list.append(user.to_dict())
+    user = jsonify(users_list)
+
+    recipess = "recetica"
+    description = "descripcioncita"
+    return render_template("index.html", recipes=recipess,
                             description=description,
-                            user=user)
+                            user="")
 
-@app.route('/recipes')
-def recipes():
-    response = requests.get(url="http://127.0.0.1:5000/api/v1/recipes/")
-    params = response.json()
-    print(params)
-    return render_template('recipes.html', params=params)
+@app.route('/recipe')
+def recipe():
+
+    return render_template("recipes.html", user="")
 
 if __name__ == '__main__':
     if getenv('HMCR_API_HOST'):

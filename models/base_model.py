@@ -83,6 +83,8 @@ class BaseModel():
         if code is None:
             if "password" in my_dict:
                 del my_dict["password"]
+        if "_sa_instance_state" in my_dict:
+            del my_dict["_sa_instance_state"]
         return my_dict
 
     """-----------"""
