@@ -47,7 +47,7 @@ Console commands:
 Documented commands (type help <topic>):
 ========================================
 EOF  all  create  destroy  help  quit  show  update
-
+```
 ---
 | **Function** | **Funcionality** | **Format** | **Example** |
 | -------------- | ----------------- | ----------------- | ----------------- |
@@ -60,9 +60,6 @@ EOF  all  create  destroy  help  quit  show  update
 |show | Prints the string representation of an instance based on the class name and id. | show <class_name> <element.id> | show user user.id
 |update | Updates an instance based on the class name and id by adding or updating attribute. | update <class_name> <element.id> attribute=value
 ---
-
-
-```
 
 #### Non-interactive Mode to create user:
 ```
