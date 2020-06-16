@@ -12,7 +12,7 @@
 * [Authors](https://github.com/MarcoANT9/Homecooker#authors)
 ---
 
-### Description 
+### Description
 
 Home Cooker is a web site that aims to provide its customers with the experience of cooking from home, with a selection of delicious recipes made by chefs or experts in the kitchen, allowing users the possibility to interact. Using the methodology the Restful API, flask, Python, MysqlAlchemy and Mysql.
 ---
@@ -51,14 +51,14 @@ EOF  all  create  destroy  help  quit  show  update
 
 | **Function** | **Funcionality** | **Format** | **Example** |
 | -------------- | ----------------- | ----------------- | ----------------- |
-|EOF | Exit the program. | EOF
-|all | Prints all string representation of all instances based or not on the class name. | all <class_name> | all user
+|EOF | Exit the program. | EOF | EOF
+|all | Prints all string representation of all instances based or not on the class name. | all <class_name - optional> | all user
 |create | Creates a new instance of BaseModel, save and print the id. | create <class_name> (arguments) | create user email=example@example.com user_type=1 password=password_example
-|destroy | Deletes an instance based on the class name and id. | destroy <class_name> (element.id) | destroy user (user.id)
-|help | Help function. | help (opcional command)
-|quit | Exit the program. | quit
-|show | Prints the string representation of an instance based on the class name and id. | User.show('12345')
-|update | Updates an instance based on the class name and id by adding or updating attribute. | User.update('12345', {'name' : ''})
+|destroy | Deletes an instance based on the class name and id. | destroy <class_name> <element.id> | destroy user user.id
+|help | Help function. | help <command - optional> | help
+|quit | Exit the program. | quit | quit
+|show | Prints the string representation of an instance based on the class name and id. | show <class_name> <element.id> | show user user.id
+|update | Updates an instance based on the class name and id by adding or updating attribute. | update <class_name> <element.id> attribute=value
 
 
 
