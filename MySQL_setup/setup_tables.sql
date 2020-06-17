@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS Recipes (
  id varchar(60) NOT NULL,
  created_at datetime NOT NULL,
  updated_at datetime NOT NULL,
+ video_url varchar(1024),
  description varchar(1024) NOT NULL,
  name varchar(128) NOT NULL,
  text varchar(2048) NOT NULL,
