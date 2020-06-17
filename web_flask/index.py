@@ -28,7 +28,7 @@ def home():
     for user in users.values():
         users_list.append(user.to_dict())
     return render_template("index.html", recipes=recipes,
-                            user=user)
+                            user="")
 
 @app.route('/recipe')
 def recipe():
@@ -63,7 +63,11 @@ def new_user():
         'user_type':user_type
     }
     r = requests.post(url="http://0.0.0.0:5000/api/v1/new_user", json=dict_user)
-    return render_template("index.html")
+    if r.status_code == 400:
+        print("Usuario no creado")
+    else:
+        print("Usuario creado")
+    return redirect("/")
 
 @app.route('/new_chef', methods=['POST'])
 def new_chef():
@@ -86,7 +90,34 @@ def new_chef():
         'user_type':user_type
     }
     r = requests.post(url="http://0.0.0.0:5000/api/v1/new_user", json=dict_chef)
-    return render_template("index.html")
+    if r.status_code == 400:
+        print("Usuario no creado")
+    else:
+        print("Usuario creado")
+    return redirect("/")
+
+@app.route('/new_recipe', methods=['POST'])
+def new_recipe():
+    first_name = request.form["first_name"]
+    last_name=request.form["last_name"]
+    nickname=request.form["nickname"]
+    email=request.form["email"]
+    password = request.form["password"]
+    user_type = 0
+    dict_user = {
+        'first_name':first_name,
+        'last_name':last_name,
+        'nickname':nickname,
+        'email':email,
+        'password':password,
+        'user_type':user_type
+    }
+    r = requests.post(url="http://0.0.0.0:5000/api/v1/new_user", json=dict_user)
+    if r.status_code == 400:
+        print("Receta no creada")
+    else:
+        print("Receta creada")
+    return redirect("/")
 
 if __name__ == '__main__':
     if getenv('HMCR_API_HOST'):
