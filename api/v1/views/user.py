@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from api.v1.views import app_views
+import json
 from models.user import User
 from models import storage
 from flask import abort, jsonify, make_response, request
@@ -77,16 +78,11 @@ def post_user():
         abort(400, 'Missing email')
     if 'password' not in data.keys():
         abort(400, 'Missing password')
-    print(response.code)
     new_user = User(**data)
-    print(new_user)
     storage.new(new_user)
-    print("user created")
     try:
         storage.save()
-        print("user saved")
     except:
-        print("valio monda")
         abort(400, 'Email alredy in use')
 
     return make_response(jsonify(new_user.to_dict()), 201)

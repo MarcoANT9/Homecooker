@@ -1,3 +1,4 @@
+import json
 from models import storage
 from models.user import User
 from models.recipe import Recipe
@@ -35,7 +36,6 @@ def recipe():
     recipes = response.json()
     for recipe in recipes:
         recipe_dict = dict(recipe)
-    print(recipe_dict)
     return render_template("recipes.html", recipes=recipe_dict)
 
 @app.route('/recipe/<id>')
@@ -44,8 +44,49 @@ def recipe_id(id):
     for value in all_:
         if value.id == id:
             recipes = value.to_dict()
-    print(recipes)
     return render_template("recipes.html", recipes=recipes)
+
+@app.route('/new_user', methods=['POST'])
+def new_user():
+    first_name = request.form["first_name"]
+    last_name=request.form["last_name"]
+    nickname=request.form["nickname"]
+    email=request.form["email"]
+    password = request.form["password"]
+    user_type = 0
+    dict_user = {
+        'first_name':first_name,
+        'last_name':last_name,
+        'nickname':nickname,
+        'email':email,
+        'password':password,
+        'user_type':user_type
+    }
+    r = requests.post(url="http://0.0.0.0:5000/api/v1/new_user", json=dict_user)
+    return render_template("index.html")
+
+@app.route('/new_chef', methods=['POST'])
+def new_chef():
+    first_name = request.form["first_name"]
+    last_name=request.form["last_name"]
+    nickname=request.form["nickname"]
+    email=request.form["email"]
+    password = request.form["password"]
+    website = request.form["website"]
+    profile_image = request.form["profile_image"]
+    user_type = 1
+    dict_chef = {
+        'first_name':first_name,
+        'last_name':last_name,
+        'nickname':nickname,
+        'email':email,
+        'password':password,
+        'website':website,
+        'profile_image':profile_image,
+        'user_type':user_type
+    }
+    r = requests.post(url="http://0.0.0.0:5000/api/v1/new_user", json=dict_chef)
+    return render_template("index.html")
 
 if __name__ == '__main__':
     if getenv('HMCR_API_HOST'):

@@ -77,7 +77,7 @@
             <div class="modal-body">
               <div class="form">
                 <!-- Chef form -->
-                <form class="register-form-chef" name="user_type">
+                <form class="register-form-chef" action="{{ url_for('new_chef')}}" method="post">
                   <div class="hc-text-center">
                     <h4>Registro usuario chef</h4>
                   </div>
@@ -110,12 +110,12 @@
                       </div>
                     </div>
                   </div>
-                  <button class="hc-btn-primary btn-block my-4" type="submit" method="POST" action="api/v1/views/new_user">Registrarse</button>
+                  <button class="hc-btn-primary btn-block my-4" type="submit">Registrarse</button>
                   <p class="message">¿No eres chef? <a href="#">Crear cuenta general</a></p>
                 </form><!-- End chef form -->
 
                 <!-- General user form -->
-                <form class="register-form-user">
+                <form class="register-form-user" action="{{ url_for('new_user')}}" method="post">
                   <div class="hc-text-center">
                     <h4>Registro de usuario común</h4>
                   </div>
@@ -135,7 +135,7 @@
                       </div>
                     </div>
                   </div>
-                  <button class="btn hc-btn-primary btn-block my-4" type="submit"  method="POST" action="/new_user">Registrarse</button>
+                  <button class="btn hc-btn-primary btn-block my-4" type="submit">Registrarse</button>
                   <p class="message">¿Registro como chef? <a href="#">Crear cuenta de chef</a></p>
                 </form><!-- End general user form -->
               </div>
