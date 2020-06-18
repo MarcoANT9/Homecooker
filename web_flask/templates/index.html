@@ -162,22 +162,22 @@
           <div class="modal-body">
             <!-- Recipe form -->
             <div class="card card-body card-body-color">
-              <form method="POST" action="variable">
+              <form action="{{ url_for('new_recipe')}}" method="post">
                 <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio*</small>
-                <input type="text" id="textInput" class="form-control mb-2" placeholder="Nombre de receta*" required>
-                <textarea id="textarea" class="form-control mb-2" placeholder="Descripción*" required></textarea>
-                <textarea id="textarea" class="form-control mb-2"
+                <input type="text" name="name" id="textInput" class="form-control mb-2" placeholder="Nombre de receta*" required>
+                <textarea id="textarea" name="description" class="form-control mb-2" placeholder="Descripción*" required></textarea>
+                <textarea id="textarea" name="ingredients" class="form-control mb-2"
                   placeholder="Ingredientes* separados por coma(ejm: Azucar, flores, muchos colores)"
                   required></textarea>
-                <textarea id="textarea" class="form-control mb-2" placeholder="Preparación*" required></textarea>
-                <input type="text" id="textInput" class="form-control mb-2" placeholder="Url video en youtube">
+                <textarea id="textarea" name="preparation" class="form-control mb-2" placeholder="Preparación*" required></textarea>
+                <input type="text" id="textInput" name="video_url" class="form-control mb-2" placeholder="Url video en youtube">
                 <label for="textInput">Foto de la receta*</label>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-image"></i></span>
                   </div>
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" required>
+                    <input type="file" name="recipe_img" class="custom-file-input" id="fileInput" aria-describedby="fileInput" required>
                     <label class="custom-file-label" for="fileInput"></label>
                   </div>
                 </div>

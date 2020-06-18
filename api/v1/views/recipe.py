@@ -49,7 +49,7 @@ def create_recipe():
         recipe = Recipe(**new_recipe)
         storage.new(recipe)
         storage.save()
-        return make_response(jsonify(recipe.to_dict()), 201)
+    return make_response(jsonify(recipe.to_dict()), 201)
 
 
 @app_views.route("/update_recipes/<recipe_id>", methods=['PUT'],

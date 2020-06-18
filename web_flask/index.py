@@ -16,6 +16,7 @@ def close_db(error):
     """ Remove the current SQLAlchemy Session """
     storage.close()
 
+""" homepage endpoint """
 @app.route('/')
 def home():
     recipes = []
@@ -30,6 +31,7 @@ def home():
     return render_template("index.html", recipes=recipes,
                             user="")
 
+""" recipe without id """
 @app.route('/recipe')
 def recipe():
     response = requests.get(url="http://127.0.0.1:5001/api/v1/recipes")
@@ -38,6 +40,7 @@ def recipe():
         recipe_dict = dict(recipe)
     return render_template("recipes.html", recipes=recipe_dict)
 
+""" endpoint recipe with id """
 @app.route('/recipe/<id>')
 def recipe_id(id):
     all_ = storage.all(Recipe).values()
@@ -46,6 +49,7 @@ def recipe_id(id):
             recipes = value.to_dict()
     return render_template("recipes.html", recipes=recipes)
 
+""" endpoint to create new common user """
 @app.route('/new_user', methods=['POST'])
 def new_user():
     first_name = request.form["first_name"]
@@ -69,6 +73,7 @@ def new_user():
         print("Usuario creado")
     return redirect("/")
 
+""" endpoint to create new chef user """
 @app.route('/new_chef', methods=['POST'])
 def new_chef():
     first_name = request.form["first_name"]
@@ -96,28 +101,29 @@ def new_chef():
         print("Usuario creado")
     return redirect("/")
 
+""" endpoint to create new recipe """
 @app.route('/new_recipe', methods=['POST'])
 def new_recipe():
-    first_name = request.form["first_name"]
-    last_name=request.form["last_name"]
-    nickname=request.form["nickname"]
-    email=request.form["email"]
-    password = request.form["password"]
-    user_type = 0
-    dict_user = {
-        'first_name':first_name,
-        'last_name':last_name,
-        'nickname':nickname,
-        'email':email,
-        'password':password,
-        'user_type':user_type
-    }
-    r = requests.post(url="http://0.0.0.0:5000/api/v1/new_user", json=dict_user)
+    name = request.form["name"]
+    description=request.form["description"]
+    ingredients=request.form["ingredients"]
+    preparation=request.form["preparation"]
+    video_url = request.form["video_url"]
+    recipe_img = request.form["recipe_img"]
+    dict_recipe = {
+        'name':name,
+        'description':description,
+        'ingredients':ingredients,
+        'preparation':preparation,
+        'video_url':video_url,
+        'recipe_img':recipe_img
+        }
+    r = requests.post(url="http://0.0.0.0:5000/api/v1/new_user", json=dict_recipe)
     if r.status_code == 400:
         print("Receta no creada")
     else:
         print("Receta creada")
-    return redirect("/")
+    return redirect("/recipe/<id>")
 
 if __name__ == '__main__':
     if getenv('HMCR_API_HOST'):
