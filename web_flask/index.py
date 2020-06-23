@@ -19,6 +19,9 @@ def close_db(error):
 """ homepage endpoint """
 @app.route('/')
 def home():
+    """
+        get recipes and users from the database
+    """
     recipes = []
     all_ = storage.all(Recipe).values()
     for value in all_:
@@ -34,6 +37,9 @@ def home():
 """ recipe without id """
 @app.route('/recipe')
 def recipe():
+    """
+        get recipes from the api´s function with requests method
+    """
     response = requests.get(url="http://127.0.0.1:5001/api/v1/recipes")
     recipes = response.json()
     for recipe in recipes:
@@ -43,6 +49,9 @@ def recipe():
 """ endpoint recipe with id """
 @app.route('/recipe/<id>')
 def recipe_id(id):
+    """
+        get recipe by id from the database
+    """
     all_ = storage.all(Recipe).values()
     for value in all_:
         if value.id == id:
@@ -52,6 +61,9 @@ def recipe_id(id):
 """ endpoint to create new common user """
 @app.route('/new_user', methods=['POST'])
 def new_user():
+    """
+        get data from form and do post request to add this to database
+    """
     first_name = request.form["first_name"]
     last_name=request.form["last_name"]
     nickname=request.form["nickname"]
@@ -76,6 +88,9 @@ def new_user():
 """ endpoint to create new chef user """
 @app.route('/new_chef', methods=['POST'])
 def new_chef():
+    """
+        get data from form and do post request to add this to database
+    """
     first_name = request.form["first_name"]
     last_name=request.form["last_name"]
     nickname=request.form["nickname"]
@@ -104,6 +119,9 @@ def new_chef():
 """ endpoint to create new recipe """
 @app.route('/new_recipe', methods=['POST'])
 def new_recipe():
+    """
+        get data from form and do post request to add this to database
+    """
     name = request.form["name"]
     description=request.form["description"]
     ingredients=request.form["ingredients"]
