@@ -24,6 +24,7 @@
 </head>
 <!--body section-->
 
+
 <body class="bg-light image-bg">
   <!--Logo section-->
   <nav class="navbar navbar-expand-lg shadow navbar-light bg-white">
@@ -33,7 +34,7 @@
       </div>
       <!--acomodar condicional para mostrar navbar segun loguin o no-->
       {% if user == "" %}
-      <form class="login-form">
+      <form class="login-form" method="POST" action="variable">
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label class="sr-only" for="inlineFormInputGroup"></label>
@@ -41,7 +42,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text icon"><i class="fas fa-user icon-color"></i></div>
               </div>
-              <input type="text" name="email" class="login" placeholder="Usuario" required>
+              <input type="text" class="login" placeholder="Usuario" required>
             </div>
           </div>
           <div class="col-auto">
@@ -50,11 +51,11 @@
               <div class="input-group-prepend">
                 <div class="input-group-text icon"><i class="fa fa-lock icon-color"></i></div>
               </div>
-              <input type="password" name="password" class="login" placeholder="Contraseña" required>
+              <input type="password" class="login" placeholder="Contraseña" required>
             </div>
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn-little" method="POST" action="localhost:5000/api/v1/login"><i class="fas fa-sign-in-alt"></i></button>
+            <button type="submit" class="btn-little"><i class="fas fa-sign-in-alt"></i></button>
           </div>
         </div>
       </form>
@@ -77,15 +78,16 @@
             <div class="modal-body">
               <div class="form">
                 <!-- Chef form -->
-                <form class="register-form-chef" action="{{ url_for('new_chef')}}" method="post">
+                <form class="register-form-chef" method="POST" action="variable">
                   <div class="hc-text-center">
-                    <h4>Registro de chef</h4>
+                    <h4>Registro usuario chef</h4>
                   </div>
                   <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio*</small>
-                  <input type="text" name="first_name" class="form-control mb-2" placeholder="Nombre*" required>
-                  <input type="text" name="last_name" id="textInput" class="form-control mb-2" placeholder="Apellido*" required>
-                  <input type="text" name="nickname" id="textInput" class="form-control mb-2" placeholder="Nickname*" required>
-                  <input type="text" name="website" id="textInput" class="form-control mb-2"
+                  <input type="text" class="form-control mb-2" placeholder="Nombre*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Apellido*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Nickname*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Nacionalidad*" required>
+                  <input type="text" id="textInput" class="form-control mb-2"
                     placeholder="Sitio web o canal de youtube">
                   <!-- Upload image -->
                   <label for="textInput">Imagen de perfil*</label>
@@ -94,13 +96,13 @@
                       <span class="input-group-text"><i class="fas fa-image"></i></span>
                     </div>
                     <div class="custom-file">
-                      <input type="file" name="profile_image" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
+                      <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" required>
                       <label class="custom-file-label" for="fileInput"></label>
                     </div>
                   </div><!-- End upload image -->
-                  <input type="email" name="email" id="defaultLoginFormEmail" class="form-control mb-2"
+                  <input type="email" id="defaultLoginFormEmail" class="form-control mb-2"
                     placeholder="Correo electrónico*" required>
-                  <input type="password" name="password" id="defaultLoginFormPassword" class="form-control mb-2"
+                  <input type="password" id="defaultLoginFormPassword" class="form-control mb-2"
                     placeholder="Contraseña*" required>
                   <div class="d-flex justify-content-between">
                     <div>
@@ -115,17 +117,17 @@
                 </form><!-- End chef form -->
 
                 <!-- General user form -->
-                <form class="register-form-user" action="{{ url_for('new_user')}}" method="post">
+                <form class="register-form-user" method="POST" action="variable">
                   <div class="hc-text-center">
-                    <h4>Registro de usuario</h4>
+                    <h4>Registro de usuario común</h4>
                   </div>
                   <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio *</small>
-                  <input type="text" name="first_name" id="textInput" class="form-control mb-2" placeholder="Nombre*" required>
-                  <input type="text" name="last_name" id="textInput" class="form-control mb-2" placeholder="Apellido*" required>
-                  <input type="text" name="nickname" id="textInput" class="form-control mb-2" placeholder="Nickname">
-                  <input type="email" name="email"  id="defaultLoginFormEmail" class="form-control mb-2"
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Nombre*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Apellido*" required>
+                  <input type="text" id="textInput" class="form-control mb-2" placeholder="Nickname">
+                  <input type="email" id="defaultLoginFormEmail" class="form-control mb-2"
                     placeholder="Correo electrónico*" required>
-                  <input type="password" name="password" id="defaultLoginFormPassword" class="form-control mb-2"
+                  <input type="password" id="defaultLoginFormPassword" class="form-control mb-2"
                     placeholder="Contraseña*" required>
                   <div class="d-flex justify-content-between">
                     <div>
@@ -162,22 +164,22 @@
           <div class="modal-body">
             <!-- Recipe form -->
             <div class="card card-body card-body-color">
-              <form action="{{ url_for('new_recipe')}}" method="post">
+              <form method="POST" action="variable">
                 <small id="campo-obligatorio" class="form-text text-muted py-3">Campo obligatorio*</small>
-                <input type="text" name="name" id="textInput" class="form-control mb-2" placeholder="Nombre de receta*" required>
-                <textarea id="textarea" name="description" class="form-control mb-2" placeholder="Descripción*" required></textarea>
-                <textarea id="textarea" name="ingredients" class="form-control mb-2"
+                <input type="text" id="textInput" class="form-control mb-2" placeholder="Nombre de receta*" required>
+                <textarea id="textarea" class="form-control mb-2" placeholder="Descripción*" required></textarea>
+                <textarea id="textarea" class="form-control mb-2"
                   placeholder="Ingredientes* separados por coma(ejm: Azucar, flores, muchos colores)"
                   required></textarea>
-                <textarea id="textarea" name="preparation" class="form-control mb-2" placeholder="Preparación*" required></textarea>
-                <input type="text" id="textInput" name="video_url" class="form-control mb-2" placeholder="Url video en youtube">
+                <textarea id="textarea" class="form-control mb-2" placeholder="Preparación*" required></textarea>
+                <input type="text" id="textInput" class="form-control mb-2" placeholder="Url video en youtube">
                 <label for="textInput">Foto de la receta*</label>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-image"></i></span>
                   </div>
                   <div class="custom-file">
-                    <input type="file" name="recipe_img" class="custom-file-input" id="fileInput" aria-describedby="fileInput" required>
+                    <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" required>
                     <label class="custom-file-label" for="fileInput"></label>
                   </div>
                 </div>
@@ -206,74 +208,95 @@
   </div>
   </nav>
   {%endif%}
-
   <!-- Page Content -->
-  <div class="container">
-
-    <!-- Jumbotron Header -->
-    <div class="jumbotron my-4 jumbotron-img">
-      <div class="container">
-        <h1 class="display-4 font-weight-bold text-title">Recetas de cocina</h1>
-        <p class="lead text">Deliciosas y creativas para preparar en casa como un profesional.</p>
-      </div>
-    </div>
-
-    <!-- Search navbar -->
-    <nav class="navbar navbar-expand-lg shadow navbar-light bg-white my-4">
-      <div class="input-label-absolute input-reset input-expand">
-        <div class="d-flex align-items-center">
-          <div class="container">
-            <div class="col-md-12">
-              <p class="text-message">Me quiero deleitar con </p>
+  <div class="container pt-4">
+    <div class="container-fluid bg-light flex-wrap">
+      <div class="row pt-4">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12 multimedia">
+              <img src="https://source.unsplash.com/SxTlB4fde9Q/500x325" class="img-fluid" alt="Responsive image">
             </div>
           </div>
-          <div class="container">
-            <div class="col-md-12 input-group md-form form-sm form-2 pl-0">
-              <input class="form-control my-0 py-1 search" type="text" placeholder="Buscar recetas" aria-label="Search">
-              <div class="input-group-append">
-                <span class="input-group-text icon"><i class="fa fa-search icon-color" aria-hidden="true"></i></span>
+          <div class="row">
+            <div class="col-md-12 pt-4">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 pt-4 mb-4">
+          <h2 class="text-center">{{ recipes.name }}</h2>
+          <p class="lead text-justify">{{ description }}</p>
+          <div class="row">
+            <div class="col-md-4">
+              <h5>
+                Ingredientes
+              </h5>
+              <p>{{ recipes.ingredients }}</p>
+            </div>
+            <div class="col-md-8">
+              <h5 class="text-center">
+                Preparación
+              </h5>
+              <p class="text-justify">{{ recipes.text }}</p>
+            </div>
+            <div class="row iconos">
+              <div class="col-md-12">
+                <a type="button" class="btn">
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star fas-sm"></i>
+                  <i class="fas fa-star-half-alt fas-sm"></i>
+                  <i class="far fa-star fas-sm"></i>
+                </a>
+                <a type="button" class="btn">
+                  <i class="fas fa-lg fa-share" aria-hidden="true"></i>
+                </a>
+                <a type="button" class="btn">
+                  <i class="far fa-heart fa-lg red"></i>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </nav>
-
-    <!-- Page Features -->
-    <div class="row text-center">
-      <!-- recipes preview block -->
-      {% for recipe in recipes[0:4] %}
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="https://source.unsplash.com/SxTlB4fde9Q/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">{{ recipe.name }}</h4>
-            <p class="card-text">{{ recipe.ingredients }}</p>
-          </div>
-          <div class="card-footer">
-            <div class="description rgba-stylish-light text-yellow">
-              <div class="subtitle">
-                <h6>Por {{ user[i] }}</h6>
-              </div>
-              <div class="more icon-color">
-                <div class="stars text-center mr-2  justify-content-center">
-                  <i class="fas fa-star-half-alt fas-sm ">4.5</i>
-                  <i class="far fa-heart fas-sm red"></i>
-                </div>
-              </div>
-            </div>
-            <a href="recipe/{{recipe.id}}" id="{{recipe.id}}" class="hc-btn-primary">Ver receta</a>
-          </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h5 class="text-center">
+            Comentarios
+          </h5>
+          <section>
+            <p class="text-justify">
+              Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. Lorem ipsum dolor sit
+              amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus.
+              Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien.
+              Curabitur in
+              metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus
+              nibh,
+              lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus.
+            </p>
+          </section>
         </div>
       </div>
-      {% endfor %}
+
     </div>
     <!-- /.row -->
   </div>
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="page-footer white pt-4">
+  <footer class="page-footer white">
     <div class="container-fluid">
       <div class="row text-center">
         <div class="col-12">
