@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 from api.v1.views import app_views
 import json
+from flask import abort, jsonify, make_response, request
 from models.user import User
 from models import storage
-from flask import abort, jsonify, make_response, request
 
 
 @app_views.route('/users', strict_slashes=False)
