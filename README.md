@@ -7,6 +7,7 @@
 * [Files](https://github.com/MarcoANT9/Homecooker#repository-contents)
 * [How to Install](https://github.com/MarcoANT9/Homecooker#how-to-install)
 * [Example Usage](https://github.com/MarcoANT9/Homecooker#example-usage)
+* [Landing Page](https://github.com/MarcoANT9/Homecooker#landing-page)
 * [Authors](https://github.com/MarcoANT9/Homecooker#authors)
 ---
 
@@ -15,7 +16,7 @@ Home Cooker is a web site that aims to provide its customers with the experience
 with a selection of delicious recipes made by chefs or experts in the kitchen,
 allowing users the possibility to interact.
 Using the methodology the Restful API, flask, Python, MysqlAlchemy and Mysql.
-
+![](index-chef.png)
 
 ---
 ### Repository contents
@@ -106,6 +107,10 @@ echo 'create Review user_id="<user_id>" recipe_id="<recipe_id>" text="<review_te
 |recipe_id | Recipe id from the database. |
 |text | Recipe comments; mandatory. |
 |rating | Recipe rating - number (1-5); mandatory. |
+
+---
+### Landing Page
+Link: [About](https://marcoant9.github.io/Homecooker/landingpage/about.html)
 
 ---
 ### Authors
