@@ -124,7 +124,7 @@ Link: [About](https://marcoant9.github.io/Homecooker/landingpage/about.html)
 
 #### Joan Sebastian García
 - Github: [Noah172](https://github.com/Noah172)
-- Twitter: [@noah_172_](https://twitter.com/noah_172_)
+- Twitter: [@Garcianoahh](https://twitter.com/Garcianoahh)
 
 #### Luz Sánchez Bolaños
 - Github: [zulsb](https://github.com/zulsb)
