@@ -123,7 +123,7 @@ Link: [About](https://marcoant9.github.io/Homecooker/landingpage/about.html)
 - Twitter: [@JessAcevedoCan1](https://twitter.com/JessAcevedoCan1)
 
 #### Joan Sebastian García
-- Github: [Noah172](https://github.com/sleepy-crow)
+- Github: [SleepyCrow](https://github.com/sleepy-crow)
 - Twitter: [@Garcianoahh](https://twitter.com/Garcianoahh)
 
 #### Luz Sánchez Bolaños
